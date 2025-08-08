@@ -1,0 +1,1198 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Colchones Sarai - Calidad y Confort para tu Descanso</title>
+
+        <!-- Bootstrap 5 CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+
+        <!-- Google Fonts (Poppins) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Font Awesome (Iconos) -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        />
+
+        <!-- Slick Carousel CSS -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+        />
+
+        <!-- Estilos Personalizados Integrados -->
+        <style>
+            /* Paleta de Colores
+           Azul Oscuro Principal: #0A2463
+           Azul Acento: #3E92CC
+           Azul Intermedio: #1E4258
+           Gris Claro (Fondo): #F8F9FA
+           Texto: #343a40
+        */
+
+            body {
+                font-family: "Poppins", sans-serif;
+                color: #343a40;
+                line-height: 1.7;
+                padding-top: 70px; /* Evita que el contenido se oculte detrás del navbar fijo */
+            }
+
+            /* --- Barra de Navegación --- */
+            .navbar {
+                background-color: #0a2463;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .nav-link {
+                font-weight: 600;
+                text-transform: uppercase;
+                font-size: 0.85rem;
+                padding: 0.8rem 1rem !important;
+                transition: color 0.2s ease;
+            }
+
+            .nav-link:hover,
+            .nav-link.active {
+                color: #3e92cc !important;
+            }
+
+            /* --- Banner Principal --- */
+            .banner {
+                height: calc(
+                    100vh - 70px
+                ); /* Ajusta la altura del banner considerando el navbar */
+                background: url("https://images.unsplash.com/photo-1598928636135-d146006a42a7?q=80&w=2070&auto=format&fit=crop")
+                    no-repeat center center/cover;
+                position: relative;
+                display: flex;
+                align-items: center;
+                margin-top: -70px; /* Compensa el padding-top del body */
+            }
+
+            .banner-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(10, 36, 99, 0.6);
+            }
+
+            .banner .container {
+                position: relative;
+                z-index: 2;
+            }
+
+            /* --- Estilos Generales de Sección --- */
+            section {
+                padding: 80px 0;
+            }
+
+            .section-title {
+                font-weight: 700;
+                color: #0a2463;
+                margin-bottom: 1rem;
+                position: relative;
+                padding-bottom: 15px;
+            }
+
+            .section-title::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 3px;
+                background-color: #3e92cc;
+            }
+
+            #quienes-somos .section-title::after {
+                left: 0;
+                transform: translateX(0);
+            }
+            .text-center .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            /* --- Tarjetas de Producto --- */
+            .product-card {
+                border: none;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+                transition:
+                    transform 0.3s ease,
+                    box-shadow 0.3s ease;
+            }
+
+            .product-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            }
+
+            .product-card .card-img-top {
+                height: 250px;
+                object-fit: cover;
+            }
+            .product-card .card-body {
+                padding: 1.5rem;
+            }
+
+            /* --- Sección Cómo Pedir --- */
+            .step-icon-wrapper {
+                width: 100px;
+                height: 100px;
+                background-color: #ebf4f6;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                color: #0a2463;
+                transition:
+                    background-color 0.3s,
+                    color 0.3s;
+            }
+            .col-md-4:hover .step-icon-wrapper {
+                background-color: #0a2463;
+                color: white;
+            }
+
+            /* --- Comentarios (Slider) --- */
+            .comment-card {
+                background: white;
+                padding: 2rem;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                text-align: center;
+                margin: 0 15px; /* Espacio entre tarjetas del slider */
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .comment-card p {
+                font-style: italic;
+                color: #555;
+                flex-grow: 1;
+            }
+            .comment-card .comment-author {
+                font-weight: 600;
+                color: #0a2463;
+                margin-top: 1rem;
+                display: block;
+            }
+            .comment-card .comment-date {
+                font-size: 0.8rem;
+                color: #999;
+                margin-top: 0.5rem;
+            }
+
+            /* Estilos para las flechas y puntos de Slick */
+            .slick-dots li button:before {
+                font-size: 12px;
+                color: #0a2463;
+            }
+            .slick-dots li.slick-active button:before {
+                color: #3e92cc;
+            }
+            .slick-prev:before,
+            .slick-next:before {
+                color: #0a2463;
+                font-size: 30px;
+            }
+
+            /* --- Modal de Producto --- */
+            .modal-content {
+                border-radius: 15px;
+            }
+            #modalProductFeatures li {
+                padding-left: 1.5em;
+                text-indent: -1.5em;
+            }
+            #modalProductFeatures li::before {
+                content: "✓";
+                color: #3e92cc;
+                margin-right: 0.5em;
+            }
+
+            /* --- Footer --- */
+            footer {
+                background-color: #151c2e;
+            }
+
+            /* --- Botones Flotantes --- */
+            .floating-socials {
+                position: fixed;
+                bottom: 25px;
+                right: 25px;
+                z-index: 1030;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .floating-socials .social-icon {
+                width: 55px;
+                height: 55px;
+                border-radius: 50%;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.8rem;
+                text-decoration: none;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+                transition: transform 0.2s ease-in-out;
+            }
+
+            .floating-socials .social-icon:hover {
+                transform: scale(1.15);
+            }
+
+            .floating-socials .whatsapp {
+                background-color: #25d366;
+            }
+            .floating-socials .facebook {
+                background-color: #1877f2;
+            }
+            .floating-socials .instagram {
+                background: radial-gradient(
+                    circle at 30% 107%,
+                    #fdf497 0%,
+                    #fdf497 5%,
+                    #fd5949 45%,
+                    #d6249f 60%,
+                    #285aeb 90%
+                );
+            }
+
+            /* --- Animaciones --- */
+            .animate-fade-in-up {
+                animation: fadeInUp 1s ease-out forwards;
+                opacity: 0;
+            }
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .section-fade-in {
+                opacity: 0;
+                transform: translateY(40px);
+                transition:
+                    opacity 0.8s ease-out,
+                    transform 0.8s ease-out;
+            }
+            .section-fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Barra de Navegación -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="index.php"
+                    >Colchones Sarai</a
+                >
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#inicio">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#quienes-somos"
+                                >Quiénes Somos</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#destacados">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="catalogo.php"
+                                >Catálogo Completo</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contacto">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Banner Principal -->
+        <header id="inicio" class="banner">
+            <div class="banner-overlay"></div>
+            <div class="container h-100">
+                <div class="row h-100 align-items-center text-center">
+                    <div class="col-12">
+                        <h1
+                            class="display-3 fw-bold text-white mb-4 animate-fade-in-up"
+                        >
+                            Donde tus sueños comienzan
+                        </h1>
+                        <p
+                            class="lead text-white mb-5 animate-fade-in-up"
+                            style="animation-delay: 0.3s"
+                        >
+                            Fabricamos descanso a tu medida con la mejor calidad
+                            y confort.
+                        </p>
+                        <a
+                            href="catalogo.php"
+                            class="btn btn-primary btn-lg rounded-pill animate-fade-in-up"
+                            style="animation-delay: 0.6s"
+                            >Ver Catálogo</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Sección: Quiénes Somos -->
+            <section id="quienes-somos" class="py-5 section-fade-in">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <h2 class="section-title">
+                                Nuestra Pasión es tu Descanso
+                            </h2>
+                            <p class="text-muted">
+                                En Colchones Sarai, somos más que fabricantes;
+                                somos artesanos del confort. Desde nuestros
+                                inicios, nos hemos dedicado a crear productos
+                                que no solo embellecen tu habitación, sino que
+                                transforman tus noches. Cada colchón, base y
+                                espaldar es fabricado en nuestras instalaciones
+                                con materiales de primera, garantizando
+                                durabilidad y un descanso reparador.
+                            </p>
+                            <p class="text-muted">
+                                Somos una empresa familiar comprometida con la
+                                innovación y la satisfacción de nuestros
+                                clientes. Creemos que todos merecen dormir bien
+                                para vivir mejor.
+                            </p>
+                        </div>
+                        <div class="col-lg-6 text-center">
+                            <img
+                                src="https://placehold.co/500x350/EBF4F6/333?text=Nuestro+Taller"
+                                class="img-fluid rounded-3 shadow-lg"
+                                alt="Taller de Colchones Sarai"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Productos Destacados -->
+            <section id="destacados" class="py-5 bg-light section-fade-in">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">Productos Destacados</h2>
+                        <p class="text-muted">
+                            Conoce nuestras creaciones más populares.
+                        </p>
+                        <a
+                            href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            download="catalogo-colores-sarai.pdf"
+                            class="btn btn-info mt-3"
+                        >
+                            <i class="fas fa-palette me-2"></i>Ver Catálogo de
+                            Colores
+                        </a>
+                    </div>
+                    <div class="row">
+                        <!-- Producto 1 -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card product-card h-100">
+                                <img
+                                    src="https://placehold.co/600x400/0A2463/FFF?text=Colchón+Imperial"
+                                    class="card-img-top"
+                                    alt="Colchón Ortopédico Imperial"
+                                />
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">
+                                        Colchón Ortopédico Imperial
+                                    </h5>
+                                    <p class="card-text text-muted">
+                                        El balance perfecto entre firmeza y
+                                        confort para cuidar tu espalda.
+                                    </p>
+                                    <button
+                                        type="button"
+                                        class="btn btn-outline-primary mt-auto"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#productModal"
+                                        data-title="Colchón Ortopédico Imperial"
+                                        data-image="https://placehold.co/600x400/0A2463/FFF?text=Colchón+Imperial"
+                                        data-description="El balance perfecto entre firmeza y confort para cuidar tu espalda. Fabricado con espuma de alta densidad y resortes encapsulados para un soporte óptimo y duradero."
+                                        data-features="<li>Núcleo de resortes encapsulados</li><li>Capas de espuma de alta densidad</li><li>Tela Jacquard antiácaros</li><li>Nivel de firmeza: Alto</li><li>Garantía: 5 años</li>"
+                                        data-prices='{"Sencillo (100x190cm)": 450000, "Semidoble (120x190cm)": 520000, "Doble (140x190cm)": 580000, "Queen (160x190cm)": 650000, "King (200x200cm)": 780000}'
+                                    >
+                                        Ver detalles
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Producto 2 -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card product-card h-100">
+                                <img
+                                    src="https://placehold.co/600x400/3E92CC/FFF?text=Base+Cama+Premium"
+                                    class="card-img-top"
+                                    alt="Base Cama Premium"
+                                />
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">
+                                        Base Cama Premium
+                                    </h5>
+                                    <p class="card-text text-muted">
+                                        Estructura robusta y diseño moderno que
+                                        complementa tu habitación.
+                                    </p>
+                                    <button
+                                        type="button"
+                                        class="btn btn-outline-primary mt-auto"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#productModal"
+                                        data-title="Base Cama Premium"
+                                        data-image="https://placehold.co/600x400/3E92CC/FFF?text=Base+Cama+Premium"
+                                        data-description="Nuestra base cama premium ofrece un soporte sólido y estable para tu colchón, alargando su vida útil. Su diseño moderno se adapta a cualquier decoración."
+                                        data-features="<li>Estructura en madera de pino inmunizada</li><li>Tapizado en microfibra o ecocuero</li><li>Patas metálicas o de madera</li><li>Altura total: 30 cm</li><li>Garantía: 1 año</li>"
+                                        data-prices='{"Sencillo (100x190cm)": 280000, "Semidoble (120x190cm)": 310000, "Doble (140x190cm)": 340000}'
+                                    >
+                                        Ver detalles
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Producto 3 -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card product-card h-100">
+                                <img
+                                    src="https://placehold.co/600x400/1E4258/FFF?text=Espaldar+Capitoné"
+                                    class="card-img-top"
+                                    alt="Espaldar Capitoné"
+                                />
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">
+                                        Espaldar Capitoné
+                                    </h5>
+                                    <p class="card-text text-muted">
+                                        El toque de elegancia y sofisticación
+                                        que tu cama necesita.
+                                    </p>
+                                    <button
+                                        type="button"
+                                        class="btn btn-outline-primary mt-auto"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#productModal"
+                                        data-title="Espaldar Capitoné"
+                                        data-image="https://placehold.co/600x400/1E4258/FFF?text=Espaldar+Capitoné"
+                                        data-description="Añade un toque de lujo a tu habitación con nuestro espaldar capitoné. Hecho a mano con atención al detalle para un acabado impecable."
+                                        data-features="<li>Estructura de madera resistente</li><li>Acolchado con espuma de alta densidad</li><li>Tapizado en lino, microfibra o ecocuero</li><li>Variedad de colores disponibles</li><li>Fácil instalación</li>"
+                                        data-prices='{"Sencillo": 220000, "Semidoble": 250000, "Doble": 280000, "Queen": 320000, "King": 380000}'
+                                    >
+                                        Ver detalles
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Promociones y Anuncios -->
+            <section
+                id="promociones"
+                class="py-5 text-white text-center section-fade-in"
+                style="background-color: #0a2463"
+            >
+                <div class="container">
+                    <h2 class="section-title text-white">¡Anuncio Especial!</h2>
+                    <p class="lead mb-4">
+                        Este mes, llévate un
+                        <strong>15% de descuento</strong> en todos los combos de
+                        colchón + base cama. ¡Renueva tu descanso y ahorra!
+                    </p>
+                    <a
+                        href="#contacto"
+                        class="btn btn-light btn-lg rounded-pill"
+                        >¡Contacta ahora!</a
+                    >
+                </div>
+            </section>
+
+            <!-- Sección: Cómo Hacer Pedidos -->
+            <section id="pedidos" class="py-5 section-fade-in">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">¿Cómo realizar tu pedido?</h2>
+                        <p class="text-muted">
+                            En 3 simples pasos, estarás más cerca de tu descanso
+                            ideal.
+                        </p>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-md-4 mb-4">
+                            <div class="step-icon-wrapper">
+                                <i class="fas fa-search-plus fa-3x"></i>
+                            </div>
+                            <h5 class="mt-3">1. Explora y Elige</h5>
+                            <p class="text-muted">
+                                Navega por nuestro catálogo y encuentra los
+                                productos perfectos para ti.
+                            </p>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="step-icon-wrapper">
+                                <i class="fab fa-whatsapp fa-3x"></i>
+                            </div>
+                            <h5 class="mt-3">2. Contáctanos</h5>
+                            <p class="text-muted">
+                                Escríbenos por WhatsApp o redes sociales para
+                                confirmar tu pedido y resolver dudas.
+                            </p>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="step-icon-wrapper">
+                                <i class="fas fa-truck-fast fa-3x"></i>
+                            </div>
+                            <h5 class="mt-3">3. Recibe en Casa</h5>
+                            <p class="text-muted">
+                                Coordinamos la entrega para que recibas tus
+                                productos en la puerta de tu hogar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Comentarios de Clientes -->
+            <section id="comentarios" class="py-5 bg-light section-fade-in">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">Nuestros Clientes Opinan</h2>
+                        <p class="text-muted">
+                            La satisfacción de quienes confían en nosotros es
+                            nuestra mejor carta de presentación.
+                        </p>
+                    </div>
+                    <!-- Contenedor del Slider -->
+                    <div id="comments-slider">
+                        <!-- INICIO DE COMENTARIOS DE EJEMPLO -->
+                        <div>
+                            <div class="comment-card h-100">
+                                <div>
+                                    <p>
+                                        "¡El mejor colchón que he tenido! Llevo
+                                        un mes durmiendo como nunca. La atención
+                                        fue excelente y la entrega súper rápida.
+                                        Totalmente recomendados."
+                                    </p>
+                                </div>
+                                <div>
+                                    <span class="comment-author"
+                                        >- Ana Pérez</span
+                                    >
+                                    <div class="comment-date">
+                                        5 de agosto de 2025
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="comment-card h-100">
+                                <div>
+                                    <p>
+                                        "Compré la base de cama y el espaldar.
+                                        La calidad de los materiales es
+                                        increíble y le dio un toque muy elegante
+                                        a mi habitación. Muy buena relación
+                                        calidad-precio."
+                                    </p>
+                                </div>
+                                <div>
+                                    <span class="comment-author"
+                                        >- Carlos Gutiérrez</span
+                                    >
+                                    <div class="comment-date">
+                                        28 de julio de 2025
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="comment-card h-100">
+                                <div>
+                                    <p>
+                                        "Excelente servicio al cliente. Me
+                                        asesoraron por WhatsApp para elegir el
+                                        combo perfecto para mis necesidades. El
+                                        producto final superó mis expectativas.
+                                        ¡Gracias!"
+                                    </p>
+                                </div>
+                                <div>
+                                    <span class="comment-author"
+                                        >- Sofía Rodríguez</span
+                                    >
+                                    <div class="comment-date">
+                                        15 de julio de 2025
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="comment-card h-100">
+                                <div>
+                                    <p>
+                                        "El combo que adquirí es fantástico. La
+                                        comodidad es de otro nivel y
+                                        estéticamente se ve genial. Recomiendo a
+                                        Colchones Sarai 100%."
+                                    </p>
+                                </div>
+                                <div>
+                                    <span class="comment-author"
+                                        >- David Rincón</span
+                                    >
+                                    <div class="comment-date">
+                                        1 de junio de 2025
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FIN DE COMENTARIOS DE EJEMPLO -->
+                    </div>
+                    <hr class="my-5" />
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <h4 class="text-center mb-4">
+                                Déjanos tu comentario
+                            </h4>
+                            <form id="comment-form">
+                                <div class="mb-3">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="comment-name"
+                                        placeholder="Tu nombre"
+                                        required
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <textarea
+                                        class="form-control"
+                                        id="comment-text"
+                                        rows="4"
+                                        placeholder="Escribe tu experiencia con nosotros..."
+                                        required
+                                    ></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-primary rounded-pill"
+                                    >
+                                        Enviar Comentario
+                                    </button>
+                                </div>
+                            </form>
+                            <div id="form-feedback" class="mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Pie de Página y Contacto -->
+        <footer id="contacto" class="bg-dark text-white pt-5 pb-4">
+            <div class="container text-center text-md-start">
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold">Colchones Sarai</h6>
+                        <hr
+                            class="mb-4 mt-0 d-inline-block"
+                            style="
+                                width: 60px;
+                                background-color: #3e92cc;
+                                height: 2px;
+                            "
+                        />
+                        <p>
+                            Fabricantes directos de productos para el descanso.
+                            Calidad, confort y durabilidad garantizada para un
+                            sueño reparador.
+                        </p>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold">
+                            Horarios de Atención
+                        </h6>
+                        <hr
+                            class="mb-4 mt-0 d-inline-block"
+                            style="
+                                width: 60px;
+                                background-color: #3e92cc;
+                                height: 2px;
+                            "
+                        />
+                        <p>
+                            <i class="fas fa-clock me-3"></i>Lunes a Viernes:
+                            8:00 AM - 6:00 PM
+                        </p>
+                        <p>
+                            <i class="fas fa-clock me-3"></i>Sábados: 9:00 AM -
+                            2:00 PM
+                        </p>
+                        <p>
+                            <i class="fas fa-map-marker-alt me-3"></i>Tu
+                            Dirección, Ciudad
+                        </p>
+                        <p><i class="fas fa-phone me-3"></i>+57 300 123 4567</p>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="text-center p-3"
+                style="background-color: rgba(0, 0, 0, 0.2)"
+            >
+                © 2024 Colchones Sarai. Todos los derechos reservados.
+            </div>
+        </footer>
+
+        <!-- Botones de Redes Sociales Flotantes -->
+        <div class="floating-socials">
+            <a
+                href="https://wa.me/573001234567?text=Hola,%20estoy%20interesado%20en%20sus%20productos."
+                target="_blank"
+                class="social-icon whatsapp"
+                title="WhatsApp"
+            >
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="#" class="social-icon facebook" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon instagram" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+
+        <!-- Modal de Producto -->
+        <div
+            class="modal fade"
+            id="productModal"
+            tabindex="-1"
+            aria-labelledby="productModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header border-0">
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img
+                                    id="modalProductImage"
+                                    src=""
+                                    class="img-fluid rounded mb-3"
+                                    alt="Producto"
+                                />
+                            </div>
+                            <div class="col-md-6 d-flex flex-column">
+                                <h2 id="modalProductTitle" class="mb-3"></h2>
+                                <p
+                                    id="modalProductDescription"
+                                    class="text-muted"
+                                ></p>
+                                <div class="mb-3">
+                                    <label
+                                        for="modalProductSize"
+                                        class="form-label"
+                                        ><strong
+                                            >Selecciona la medida:</strong
+                                        ></label
+                                    >
+                                    <select
+                                        class="form-select"
+                                        id="modalProductSize"
+                                    ></select>
+                                </div>
+                                <h4 class="mt-3">Características:</h4>
+                                <ul
+                                    id="modalProductFeatures"
+                                    class="list-unstyled"
+                                ></ul>
+                                <h3
+                                    id="modalProductPrice"
+                                    class="text-primary fw-bold mt-auto"
+                                ></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <a
+                            href="#"
+                            target="_blank"
+                            class="btn btn-success"
+                            id="modalWhatsappButton"
+                            ><i class="fab fa-whatsapp"></i> Pedir por
+                            WhatsApp</a
+                        >
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >
+                            Cerrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap 5 JS y Popper.js -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- Slick Carousel JS -->
+        <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+        ></script>
+
+        <!-- Script Personalizado Integrado -->
+        <script>
+            $(document).ready(function () {
+                // --- Desplazamiento Suave ---
+                $('a.nav-link[href*="#"], a.btn[href*="#"]').on(
+                    "click",
+                    function (e) {
+                        if (
+                            location.pathname.replace(/^\//, "") ==
+                                this.pathname.replace(/^\//, "") &&
+                            location.hostname == this.hostname
+                        ) {
+                            var target = $(this.hash);
+                            target = target.length
+                                ? target
+                                : $("[name=" + this.hash.slice(1) + "]");
+                            if (target.length) {
+                                e.preventDefault();
+                                $("html, body").animate(
+                                    {
+                                        scrollTop: target.offset().top - 70,
+                                    },
+                                    800,
+                                );
+                            }
+                        }
+                    },
+                );
+
+                // --- Lógica para el Modal de Producto ---
+                const productModal = document.getElementById("productModal");
+                if (productModal) {
+                    const modalProductSize =
+                        productModal.querySelector("#modalProductSize");
+                    const modalProductPrice =
+                        productModal.querySelector("#modalProductPrice");
+                    const whatsappButton = productModal.querySelector(
+                        "#modalWhatsappButton",
+                    );
+                    let currentPrices = {};
+                    let currentTitle = "";
+
+                    // Función para formatear el precio
+                    function formatPrice(price) {
+                        return new Intl.NumberFormat("es-CO", {
+                            style: "currency",
+                            currency: "COP",
+                            minimumFractionDigits: 0,
+                        }).format(price);
+                    }
+
+                    // Función para actualizar el WhatsApp link
+                    function updateWhatsappLink() {
+                        const selectedSize = modalProductSize.value;
+                        const selectedPrice = currentPrices[selectedSize];
+                        const whatsappBaseUrl =
+                            "https://wa.me/573001234567?text=";
+                        const whatsappText = `Hola, estoy interesado en el producto: ${currentTitle} (Medida: ${selectedSize}, Precio: ${formatPrice(selectedPrice)})`;
+                        whatsappButton.href =
+                            whatsappBaseUrl + encodeURIComponent(whatsappText);
+                    }
+
+                    // Evento cuando el modal se muestra
+                    productModal.addEventListener(
+                        "show.bs.modal",
+                        function (event) {
+                            const button = event.relatedTarget;
+                            currentTitle = button.getAttribute("data-title");
+                            const image = button.getAttribute("data-image");
+                            const description =
+                                button.getAttribute("data-description");
+                            const features =
+                                button.getAttribute("data-features");
+                            const pricesString =
+                                button.getAttribute("data-prices");
+
+                            currentPrices = JSON.parse(pricesString);
+
+                            productModal.querySelector(
+                                "#modalProductTitle",
+                            ).textContent = currentTitle;
+                            productModal.querySelector(
+                                "#modalProductImage",
+                            ).src = image;
+                            productModal.querySelector(
+                                "#modalProductDescription",
+                            ).textContent = description;
+                            productModal.querySelector(
+                                "#modalProductFeatures",
+                            ).innerHTML = features;
+
+                            // Limpiar y poblar el select de medidas
+                            $(modalProductSize).empty();
+                            for (const size in currentPrices) {
+                                $(modalProductSize).append(
+                                    $("<option>", {
+                                        value: size,
+                                        text: size,
+                                    }),
+                                );
+                            }
+
+                            // Actualizar precio inicial y link de WhatsApp
+                            const initialPrice =
+                                currentPrices[Object.keys(currentPrices)[0]];
+                            modalProductPrice.textContent =
+                                formatPrice(initialPrice);
+                            updateWhatsappLink();
+                        },
+                    );
+
+                    // Evento cuando se cambia la medida
+                    $(modalProductSize).on("change", function () {
+                        const selectedSize = this.value;
+                        const newPrice = currentPrices[selectedSize];
+                        modalProductPrice.textContent = formatPrice(newPrice);
+                        updateWhatsappLink();
+                    });
+                }
+
+                // --- Animación de aparición de secciones ---
+                const sections = $(".section-fade-in");
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                $(entry.target).addClass("visible");
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    { threshold: 0.1 },
+                );
+                sections.each(function () {
+                    observer.observe(this);
+                });
+
+                // --- Slider de Comentarios ---
+                const slider = $("#comments-slider");
+                function initializeSlider() {
+                    if (slider.hasClass("slick-initialized")) {
+                        slider.slick("unslick");
+                    }
+                    slider.slick({
+                        dots: true,
+                        infinite: true,
+                        speed: 500,
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        autoplaySpeed: 4000,
+                        responsive: [
+                            { breakpoint: 992, settings: { slidesToShow: 2 } },
+                            { breakpoint: 768, settings: { slidesToShow: 1 } },
+                        ],
+                    });
+                }
+
+                // --- Sistema de Comentarios ---
+                if (slider.length) {
+                    const commentForm = $("#comment-form");
+                    const formFeedback = $("#form-feedback");
+
+                    function formatDate(dateString) {
+                        const options = {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                        };
+                        return new Date(dateString).toLocaleDateString(
+                            "es-ES",
+                            options,
+                        );
+                    }
+
+                    function loadComments() {
+                        $.ajax({
+                            url: "comments.php?action=read",
+                            type: "GET",
+                            dataType: "json",
+                            success: function (comments) {
+                                if (comments && comments.length > 0) {
+                                    slider.slick("unslick");
+                                    slider.empty();
+                                    comments
+                                        .reverse()
+                                        .slice(0, 10)
+                                        .forEach((comment) => {
+                                            const formattedDate = formatDate(
+                                                comment.timestamp,
+                                            );
+                                            const commentHTML = `
+                                        <div>
+                                            <div class="comment-card h-100">
+                                                <div><p>"${escapeHtml(comment.text)}"</p></div>
+                                                <div>
+                                                    <span class="comment-author">- ${escapeHtml(comment.name)}</span>
+                                                    <div class="comment-date">${formattedDate}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `;
+                                            slider.append(commentHTML);
+                                        });
+                                    initializeSlider();
+                                } else {
+                                    initializeSlider();
+                                }
+                            },
+                            error: function () {
+                                console.log(
+                                    "No se pudieron cargar comentarios. Se muestra el slider con ejemplos.",
+                                );
+                                initializeSlider();
+                            },
+                        });
+                    }
+
+                    function escapeHtml(text) {
+                        var map = {
+                            "&": "&amp;",
+                            "<": "&lt;",
+                            ">": "&gt;",
+                            '"': "&quot;",
+                            "'": "&#039;",
+                        };
+                        return text.replace(/[&<>"']/g, function (m) {
+                            return map[m];
+                        });
+                    }
+
+                    commentForm.on("submit", function (e) {
+                        e.preventDefault();
+                        const name = $("#comment-name").val().trim();
+                        const text = $("#comment-text").val().trim();
+                        const currentDate = new Date().toLocaleDateString(
+                            "es-ES",
+                            { year: "numeric", month: "long", day: "numeric" },
+                        );
+
+                        if (name && text) {
+                            const newCommentHTML = `
+                            <div>
+                                <div class="comment-card h-100">
+                                    <div><p>"${escapeHtml(text)}"</p></div>
+                                    <div>
+                                        <span class="comment-author">- ${escapeHtml(name)}</span>
+                                        <div class="comment-date">${currentDate}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                            slider.slick("slickAdd", newCommentHTML, 0);
+
+                            $.ajax({
+                                url: "comments.php?action=write",
+                                type: "POST",
+                                data: { name: name, text: text },
+                                success: function (response) {
+                                    formFeedback.html(
+                                        '<div class="alert alert-success">¡Gracias por tu comentario!</div>',
+                                    );
+                                    commentForm[0].reset();
+                                    setTimeout(
+                                        () => formFeedback.empty(),
+                                        4000,
+                                    );
+                                },
+                                error: function () {
+                                    formFeedback.html(
+                                        '<div class="alert alert-danger">Hubo un error al enviar tu comentario.</div>',
+                                    );
+                                },
+                            });
+                        }
+                    });
+
+                    loadComments();
+                }
+            });
+        </script>
+    </body>
+</html>
